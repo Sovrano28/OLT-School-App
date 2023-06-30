@@ -1,1 +1,51 @@
+@import "../../node_modules/bootstrap/scss/_functions.scss";
+@import "../../node_modules/bootstrap/scss/_variables.scss";
+
+$project-theme-colours: (
+  "secondary-yellow": #DBCA16,
+  "primary-blue-1": #1A54C2,
+  "secondary-blue-1": #5098FF,
+  "main-light-blue": #DDE2FF,
+  "primary-grey": #F7F7F7,
+  "dark-shade": #191919
+);
+
+$theme-colors: map-merge($theme-colors, $project-theme-colours);
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+html, body {
+  font-family: "Inter", sans-serif;
+}
+
+// my resets
+p, h1, h2, h3, h4, h5, h6 {margin: 0;}
+
+input, textarea, button, select {font: inherit;}
+
+// end
+
+// my-custom styles
+.place-items-centre {
+  justify-content: center;
+  align-items: center;
+}
+// end
+
+// START
+.dashboard-options {
+  margin-left: 25%;
+}
+
+img {
+  
+  &:is([alt="arrow down"]) {
+    margin-top: 30%;
+  }
+
+  &:is([alt="arrow right"]) {
+    padding-left: 30%;
+    transform: rotate(270deg);
+  }
+  
+}
