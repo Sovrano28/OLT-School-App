@@ -16,6 +16,14 @@ $theme-colors: map-merge($theme-colors, $project-theme-colours);
 
 html, body {
   font-family: "Inter", sans-serif;
+
+  //* redeclaring project colours in form of variables for none-class use here.
+  --secondary-yellow: #DBCA16;
+  --primary-blue-1: #1A54C2;
+  --secondary-blue-1: #5098FF;
+  --main-light-blue: #DDE2FF;
+  --primary-grey: #F7F7F7;
+  --dark-shade: #191919;
 }
 
 // my resets
@@ -25,44 +33,60 @@ input, textarea, button, select {font: inherit;}
 
 // end
 
-// my-custom styles
+//* my utility classes
 .place-items-centre {
   justify-content: center;
   align-items: center;
 }
-// end
+
+.grid-item-centre {
+  display: grid;
+  place-items: center;
+}
+
+//* end
 
 // START
+.main { //? all these was to make it move while the side bar is fixed.
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
 .side-bar {
-  height: 900px;
+  flex: 0 0 auto; /*? Prevent the fixed item from growing or shrinking */
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  min-height: min-content;
 
   .bg-secondary-yellow > div {
     flex-grow: 1; //? note the use of this brutha...
   }
-}
 
-.dashboard-options {
-  margin-left: 25%;
-}
-
-img {
-  
-  &:is([alt="arrow down"]) {
-    margin-top: 30%;
-  }
-
-  &:is([alt="arrow right"]) {
-    padding-left: 30%;
-    transform: rotate(270deg);
+  .dashboard-sub-options {
+    padding-left: 25%;
   }
   
+  img {
+    
+    &:is([alt="arrow down"]) {
+      margin-top: 30%;
+    }
+  
+    &:is([alt="arrow right"]) {
+      padding-left: 30%;
+      transform: rotate(270deg);
+    }
+    
+  }
 }
+
 
 header {
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
 
   .search-bar {
-    flex-grow: 1; //? means as a flex-item take width of 100%! would be using its bootstrap class equivalence now.
+    flex-grow: 1; //? means as a flex-item, take width of 100%! would be using its bootstrap class equivalence now.
     border-radius: 24px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   }
@@ -77,7 +101,14 @@ header {
     }
   }
 
-  > div > div {
+   .header-nav > div > div {
     cursor: pointer;
   }
+}
+
+main {
+  .blue-right path {
+    stroke: var(--primary-blue-1);
+  }
+
 }
