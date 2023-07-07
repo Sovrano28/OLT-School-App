@@ -7,6 +7,7 @@ $project-theme-colours: (
   "secondary-blue-1": #5098FF,
   "tertiary-blue-1": #00164F,
   "main-light-blue": #DDE2FF,
+  "secondary-grey": #F3F4F9,
   "primary-grey": #F7F7F7,
   "dark-grey": #4F5360,
   "dark-shade": #191919
@@ -45,6 +46,10 @@ input, textarea, button, select {font: inherit;}
 .grid-item-centre {
   display: grid;
   place-items: center;
+}
+
+.width-max-content {
+  width: max-content;
 }
 
 .cursor-pointer {cursor: pointer;}
@@ -179,6 +184,7 @@ main {
 
     .calendar-activities {
       grid-row: span 3;
+      font-family: "Rubik", sans-serif;
     }
   }
 
