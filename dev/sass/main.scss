@@ -5,6 +5,7 @@ $project-theme-colours: (
   "secondary-yellow": #DBCA16,
   "primary-blue-1": #1A54C2,
   "secondary-blue-1": #5098FF,
+  "tertiary-blue-1": #00164F,
   "main-light-blue": #DDE2FF,
   "primary-grey": #F7F7F7,
   "dark-grey": #4F5360,
@@ -56,17 +57,20 @@ input, textarea, button, select {font: inherit;}
 //* end
 
 // START
-.main { //? all these was to make it move while the side bar is fixed.
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
 .side-bar {
-  flex: 0 0 auto; //? Prevent the fixed item from growing or shrinking
-  position: sticky;
+  position: fixed;
+  z-index: 99;
   top: 0;
-  height: 100vh;
-  min-height: min-content;
+  left: -250px;
+  bottom: 0;
+  width: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transition: left 0.5s ease-in-out;
+
+  @media (min-width: 1024px) {
+    left: 0;
+  }
 
   .bg-secondary-yellow > div {
     flex-grow: 1; //? note the use of this brutha...
@@ -90,6 +94,15 @@ input, textarea, button, select {font: inherit;}
   }
 }
 
+.main { //? all these was to make it move while the side bar is fixed.
+  flex-grow: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @media (min-width: 1024px) {
+    margin-left: 250px;
+  }
+}
 
 header {
   box-shadow: 0px 5px 4px 0px rgba(0, 0, 0, 0.25);
@@ -116,10 +129,12 @@ header {
 }
 
 main {
-  .grid-container {
+  overflow-x: hidden;
+  
+  .grid-container-1 {
     display: grid;
     grid-template-columns: repeat(3, 200px) 296px;
-    grid-template-rows: repeat(5, 85.333px);
+    grid-template-rows: repeat(7, 85.333px);
 
     > div {
       background-color: white;
@@ -153,6 +168,42 @@ main {
         
         > div:is(.bg-secondary-yellow) {
           border-radius: 50%;
+        }
+      }
+    }
+
+    .notice-board {
+      grid-column: span 3;
+      grid-row: span 4;
+    }
+
+    .calendar-activities {
+      grid-row: span 3;
+    }
+  }
+
+  .grid-container-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    &__frames {
+      grid-column: span 1;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      font-size: 0.875rem;
+      padding: 20px 0px 32px 0px;
+      
+      @media (min-width: 768px) {
+        font-size: 1rem;
+        padding: 30px 0px 48px 0px;
+      }
+
+      img {
+        width: 75%;
+
+        @media (min-width: 576px) {
+          width: 100%;
         }
       }
     }
