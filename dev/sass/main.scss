@@ -100,8 +100,7 @@ input, textarea, button, select {font: inherit;}
   }
 }
 
-.main { //? all these was to make it move while the side bar is fixed.
-  flex-grow: 1;
+.main { 
   overflow-y: auto;
   overflow-x: hidden;
 
@@ -129,7 +128,7 @@ header {
     }
   }
 
-   .header-nav > div > div {
+  .header-nav > div > div {
     cursor: pointer;
   }
 }
@@ -234,5 +233,13 @@ main {
         }
       }
     }
+  }
+}
+
+footer {
+  .socials {
+    aspect-ratio: 16 / 9;
+    width: 23%;
+    border-radius: 8px;
   }
 }
